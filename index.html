@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="nav" id="navBar">
+        <div class="navSection navFirst">
+          <img class="logo" src="image/PlantLogo.png" width="100px" />
+          <select name="city" id="city" class="city" onchange="cityFunction()">
+            <option value="Indore">Deliver To</option>
+            <option value="Bhopal">Bhopal</option>
+            <option value="Indore">Indore</option>
+            <option value="Gwalior">Gwalior</option>
+            <option value="Jabalpur">Jabalpur</option>
+            <option value="Ujjain">Ujjain</option>
+          </select>
+          <i class="fa fa-crosshairs"></i>
+        </div>
+        <div class="navSection navSecond">
+          <input type="search" placeholder="Find Plants" />
+          <i class="fa fa-search"></i>
+        </div>
+        <div class="navSection navThird">
+          <div class="navBox navBox1">
+            <button><i class="fa fa-truck"></i></button>
+            <div class="trackOrder">Track Order</div>
+          </div>
+          <div class="navBox navBox2">
+            <button id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+            </button>
+            <div class="trackOrder">Cart</div>
+          </div>
+          <div class="navBox navBox3">
+            <button onclick="clickFunction()">
+              <i class="fa fa-user-circle"></i>
+            </button>
+
+            <div class="trackOrder">Login</div>
+          </div>
+          <div class="navBox navBox4">
+            <button><i class="fa fa-bars" onclick="clickme()"></i></button>
+            <div class="trackOrder">Menu</div>
+          </div>
+        </div>
+        <div class="navSection navForth">
+          <div class="navBox navBox4">
+            <button onclick="clickMenu()"><i class="fa fa-bars"></i></button>
+          </div>
+        </div>
+
+        <div class="cart">
+          <h2 class="cart-title">Your Cart</h2>
+
+          <!-- content -->
+          <div class="cart-content">
+            <!-- <div class="cart-box">
+              <img src="image/option/bonsai.png" class="cart-img" />
+              <div class="detail-box">
+                <div class="cart-container">
+                  <div class="cart-product-title">bonsai Tree</div>
+                  <div class="cart-price">100</div>
+                </div>
+                <input type="number" value="1" class="cart-quantity" />
+              </div>
+              // Remove Cart
+              <i class="fa fa-trash-o cart-remove"></i>
+            </div> -->
+          </div>
+
+          <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">0</div>
+          </div>
+          <!-- buy button -->
+          <button type="button" class="btn-buy">Buy Now</button>
+          <!-- cart Close -->
+          <i class="fa fa-times-circle" id="cart-close"></i>
+        </div>
+      </div>
+      <div class="slideMenu" id="SlideDiv">
+        <div class="slideMenuBox menuBox1">
+          <div class="navBox navBox1">
+            <i class="fa fa-truck"></i>
+            <div class="trackOrder">Track Order</div>
+          </div>
+          <div class="navBox navBox2">
+            <button id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <div class="trackOrder">Cart</div>
+            </button>
+          </div>
+          <div class="navBox navBox3">
+            <i class="fa fa-user-circle" onclick="clickFunction()"></i>
+            <div class="trackOrder">Login</div>
+          </div>
+        </div>
+        <div class="slideMenuBox menuBox2">
+          <i class="fa fa-gift"></i>
+          <div class="corprotive gift">Corprotive Gift</div>
+        </div>
+        <div class="slideMenuBox menuBox3">
+          <i class="fa fa-industry"></i>
+          <div class="franchise gift">Franchise</div>
+        </div>
+        <div class="slideMenuBox menuBox4">
+          <i class="fa fa-address-card"></i>
+          <div class="aboutUs gift">About Us</div>
+        </div>
+        <div class="slideMenuBox menuBox5">
+          <i class="fa fa-tty"></i>
+          <div class="contactUs gift">contactUs</div>
+        </div>
+        <div class="slideMenuBox menuBox6">
+          <i class="fa fa-whatsapp"></i>
+          <div class="whatsApp gift">WhatsApp</div>
+        </div>
+      </div>
+      <div class="slideMenu slideMainMenu" id="SlideDivMain">
+        <div class="slideMenuBox menuBox2">
+          <i class="fa fa-gift"></i>
+          <div class="corprotive gift">Corprotive Gift</div>
+        </div>
+        <div class="slideMenuBox menuBox3">
+          <i class="fa fa-industry"></i>
+          <div class="franchise gift">Franchise</div>
+        </div>
+        <div class="slideMenuBox menuBox4">
+          <i class="fa fa-address-card"></i>
+          <div class="aboutUs gift">About Us</div>
+        </div>
+        <div class="slideMenuBox menuBox5">
+          <i class="fa fa-tty"></i>
+          <div class="contactUs gift">contactUs</div>
+        </div>
+        <div class="slideMenuBox menuBox6">
+          <i class="fa fa-whatsapp"></i>
+          <div class="whatsApp gift">WhatsApp</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="option">
+      <div class="optionBox">
+        <div class="circleBox">
+          <img class="circle" src="image/option/offer.png" />
+          <div class="circleName">Special Offer</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/Vegi.jpg" />
+          <div class="circleName">Vegetable Plant</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/flower.jpg" />
+          <div class="circleName">Flower Plants</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/air-purify.jpg" />
+          <div class="circleName">Air-Purify Plants</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/indoor.jpg" />
+          <div class="circleName">Indoor Plants</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/ayurvedic.jpg" />
+          <div class="circleName">Ayurvedic Plants</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/fertilizer.png" />
+          <div class="circleName">Plant Fertilizer</div>
+        </div>
+        <div class="circleBox">
+          <img class="circle" src="image/option/seed.png" />
+          <div class="circleName">All-Type Seed</div>
+        </div>
+      </div>
+    </div>
+    <div class="login" id="login">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Sign in</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+          </div>
+          <span>or use your account</span>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <a href="#">Forgot your password?</a>
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <button class="cross" onclick="cross()">
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+    <!-- Image Slider  -->
+    <div class="slider">
+      <img id="img-1" src="image/slide1.png" alt="Image 1" />
+      <img id="img-2" src="image/slide2.png" alt="Image 2" />
+      <img id="img-3" src="image/slide3.png" alt="Image 3" />
+      <div class="upSlide">
+        <h2>Buy Plant Online in <span id="onlineCity"></span></h2>
+        <p>
+          The nicest gifts are the ones that not bring a smile on the face but
+          also remain merarable and cherishable. PlantEra offers such gifts by
+          the way of plants in Bhopal for your near and dear ones. Amaze them
+          with choicest Plants and experss your Love in the most unforgeetable
+          Way
+        </p>
+      </div>
+    </div>
+    <div class="navigation-button">
+      <span class="dot active" onclick="changeSlide(0)"></span>
+      <span class="dot" onclick="changeSlide(1)"></span>
+      <span class="dot" onclick="changeSlide(2)"></span>
+    </div>
+
+    <div class="plantInfo">
+      <h1 class="plantHead">Plant Describe</h1>
+      <div class="plantInfoUp">
+        <div
+          class="plantName plantMain"
+          onmouseover="plantShow()"
+          onmouseout="plantOff()"
+        >
+          Natural Plants
+        </div>
+        <div
+          class="plantName vegetable"
+          onmouseover="vegiShow()"
+          onmouseout="vegiOff()"
+        >
+          Vegetable Plants
+        </div>
+        <div
+          class="plantName flower"
+          onmouseover="flowerShow()"
+          onmouseout="flowerOff()"
+        >
+          Flower Plants
+        </div>
+        <div
+          class="plantName air-purify"
+          onmouseover="airShow()"
+          onmouseout="airOff()"
+        >
+          Air-Purify Plants
+        </div>
+        <div
+          class="plantName indoor"
+          onmouseover="indoorShow()"
+          onmouseout="indoorOff()"
+        >
+          Indoor Plants
+        </div>
+        <div
+          class="plantName ayurvedic"
+          onmouseover="ayuShow()"
+          onmouseout="ayuOff()"
+        >
+          Ayurvedic Plants
+        </div>
+      </div>
+      <div class="plantInfoDown plant_main" id="plant_main">
+        Welcome to our online nursery, where you can find a wide variety of
+        natural plants available for purchase. We specialize in providing a
+        seamless plant online shopping experience, making it convenient for you
+        to buy plants online and have them delivered right to your doorstep.
+      </div>
+      <div class="plantInfoDown" id="plant_vegi">
+        Vegetables can be eaten either raw or cooked and play an important role
+        in human nutrition, being mostly low in fat and carbohydrates, but high
+        in vitamins, minerals and dietary fiber. Vegetables are parts of plants
+        that are consumed by humans or other animals as food.
+      </div>
+      <div class="plantInfoDown" id="plant_flower">
+        Flowering plants are plants that bear flowers and fruits, and form the
+        clade Angiospermae, commonly called angiosperms. They include all forbs,
+        grasses and grass-like plants, a vast majority of broad-leaved trees,
+        shrubs and vines, and most aquatic plants.
+      </div>
+      <div class="plantInfoDown" id="plant_air">
+        We are unknowingly exposed to toxins and harmful pollutants even when we
+        are indoors. This is one aspect that should certainly be looked into in
+        order to boost overall health and well-being. Indoor plants make for
+        excellent purifiers in this scenario.
+      </div>
+      <div class="plantInfoDown" id="plant_indoor">
+        Indoor plants add colour & warmth to your space. They create a more
+        welcoming nook in your house, improve air quality & make you feel good-
+        mentally & physically. Many houseplants are considered easy to grow, but
+        they must be provided with appropriate care.
+      </div>
+      <div class="plantInfoDown" id="plant_ayu">
+        Ayurvedic plants are the types of plants used in herbology or herbal
+        medicine. These plants possess therapeutic properties or have beneficial
+        effects on the human body. The medicinal plants are useful in the
+        treatment of headache and irritation from insect bites.
+      </div>
+    </div>
+    <section class="offer">
+      <div class="sectionName">OFFER</div>
+      <div class="sectionDefination">Special Deal For this week</div>
+      <div id="wrapper">
+        <div id="carousel">
+          <div id="content">
+            <div class="product-box">
+              <img src="image/AddToCart/neem.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Neem Tree - Plant</h2>
+                <span class="product-price">320</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/alovera.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Aloe vera Plant</h2>
+                <span class="product-price">259</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/blackrose.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Black Rose - Plant</h2>
+                <span class="product-price">750</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/tulsi.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Tulsi - Herb plant</h2>
+                <span class="product-price">74</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/parijat.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Jasmine Plant</h2>
+                <span class="product-price">379</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/spider plant.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Spider Plant</h2>
+                <span class="product-price">239</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like" onclick="heartClick()"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/dhaniya.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Coriander Plant</h2>
+                <span class="product-price">179</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/redchili.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Chilli Jwala Plant</h2>
+                <span class="product-price">129</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img src="image/AddToCart/haldi.jpg" class="product-img" />
+              <div class="product-container">
+                <h2 class="product-title">Turmeric, Haldi Plant</h2>
+                <span class="product-price">199</span>
+              </div>
+              <i class="far fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+            <div class="product-box">
+              <img
+                src="image/AddToCart/banyan bonsai plant.jpg"
+                class="product-img"
+              />
+              <div class="product-container">
+                <h2 class="product-title">Banyan Bonsai Plant</h2>
+                <span class="product-price">1769</span>
+              </div>
+              <i class="fa fa-shopping-basket add-cart"></i>
+              <i
+                class="fa fa-heart product-click-like"
+                id="heart"
+                style="color: red"
+              ></i>
+              <i class="far fa-heart product-like"></i>
+            </div>
+          </div>
+        </div>
+        <button id="prev">
+          <i class="fa fa-angle-left"></i>
+        </button>
+        <button id="next">
+          <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!--
+    <section class="shop container">
+      <h2 class="section-title">Shop Product</h2>
+
+       Content -->
+    <!-- <div class="shop-content"> -->
+    <!-- Box 1 -->
+    <!-- <div class="product-box">
+          <img src="image/option/bonsai.png" class="product-img" />
+          <div class="product-container">
+            <h2 class="product-title">Bonsai Tree</h2>
+            <span class="product-price">4500</span>
+          </div>
+          <i class="fa fa-shopping-basket add-cart"></i>
+        </div> -->
+    <!-- Box 2 -->
+    <!-- <div class="product-box">
+          <img src="image/option/seed.png" class="product-img" />
+          <div class="product-container">
+            <h2 class="product-title">Seed Tree</h2>
+            <span class="product-price">500</span>
+          </div>
+          <i class="fa fa-shopping-basket add-cart"></i>
+        </div> -->
+    <!-- Box 3 -->
+    <!-- <div class="product-box">
+          <img src="image/option/pots.png" class="product-img" />
+          <div class="product-container">
+            <h2 class="product-title">Pots</h2>
+            <span class="product-price">400</span>
+          </div>
+          <i class="fa fa-shopping-basket add-cart"></i>
+        </div> -->
+    <!-- Box 4 -->
+    <!-- <div class="product-box">
+          <img src="image/option/plant.png" class="product-img" />
+          <div class="product-container">
+            <h2 class="product-title">Plant Tree</h2>
+            <span class="product-price">1500</span>
+          </div>
+          <i class="fa fa-shopping-basket add-cart"></i>
+        </div>
+      </div>
+    </section> -->
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <script src="script.js"></script>
+    <script src="addToCart.js"></script>
+    <script src="slider.js"></script>
+  </body>
+</html>
